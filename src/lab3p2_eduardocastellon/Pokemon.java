@@ -9,11 +9,11 @@ package lab3p2_eduardocastellon;
  * @author caste
  */
 public class Pokemon {
-    private String nombre;
-    private int numDex;
-    private String Naturaleza;
-    private Boolean atrapado;
-    private Pokeball ball;
+    protected String nombre;
+    protected int numDex;
+    protected String Naturaleza;
+    protected Boolean atrapado;
+    protected Pokeball ball;
 
     public Pokemon() {
     }
