@@ -12,11 +12,12 @@ public class WaterType extends Pokemon{
     private boolean respiracion;
     private int velocidadNado;
 
-    public WaterType(boolean respiracion, int velocidadNado) {
+    public WaterType(String nombre, int numDex, String Naturaleza, Boolean atrapado, boolean respiracion, int velocidadNado) {
+        super(nombre, numDex, Naturaleza, atrapado);
         this.respiracion = respiracion;
         this.velocidadNado = velocidadNado;
     }
-
+    
     public boolean isRespiracion() {
         return respiracion;
     }

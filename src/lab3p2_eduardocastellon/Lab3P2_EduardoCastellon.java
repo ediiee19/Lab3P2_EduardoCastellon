@@ -33,15 +33,32 @@ public class Lab3P2_EduardoCastellon {
                     break;
                 }
                 case 1: {
-                    creacion();
+                    crearPokemon();
                     break;
                 }
-
+                case 2:{
+                    crearPokeball();
+                    break;
+                }
             }
         }//fin while menu
     }//fin main
+    
+    public static void crearPokeball(){
+        Scanner lea = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
+        boolean menuCreacion = true;
 
-    public static void creacion() {
+         System.out.println("|-------------------|\n"
+                + "|   Creacion de Pokeballs   |\n"
+                + "|-------------------|\n");
+         
+        while (menuCreacion) {
+            System.out.println("Ingrese color ");
+        }
+    }
+    
+    public static void crearPokemon() {
         Scanner lea = new Scanner(System.in);
         Scanner entrada = new Scanner(System.in);
         boolean menuCreacion = true;
@@ -56,9 +73,12 @@ public class Lab3P2_EduardoCastellon {
                 int numDex = entrada.nextInt();
                 System.out.println("Naturaleza del pokemon(Timido, Energetico, Misterioso)");
                 String naturaleza = lea.next();
+                
                 System.out.println("Ingresar potencia de llama: ");
                 int pot = entrada.nextInt();
+                
                 pokemones.add((FireType) new FireType(nombre, numDex, naturaleza, menuCreacion, pot));
+                menuCreacion = false;
 
             } else if (tipo.equalsIgnoreCase("agua")) {
                 System.out.println("Nombre del pokemon: ");
@@ -67,7 +87,6 @@ public class Lab3P2_EduardoCastellon {
                 int numDex = entrada.nextInt();
                 System.out.println("Naturaleza del pokemon(Timido, Energetico, Misterioso)");
                 String naturaleza = lea.next();
-
                 System.out.println("Puede respirar vivir fuera del agua?[si/no]: ");
                 String resp = lea.next();
 
@@ -77,15 +96,33 @@ public class Lab3P2_EduardoCastellon {
                     if (resp.equalsIgnoreCase("si")) {
                         respirar = true;
                         respirar = false;
-                    } else if (resp.equalsIgnoreCase("no"))  {
+                    } else if (resp.equalsIgnoreCase("no")) {
                         respirar = false;
                     } else {
                         System.out.println("Ingrese respuesta valida");
                     }
-git a                } while (respirar);
+                } while (respirar);
+                
+                System.out.println("Ingrese velodcidad de nado: ");
+                int nado = lea.nextInt();
+                pokemones.add((WaterType) new WaterType(nombre, numDex, naturaleza, valiresp, respirar, nado));
+                menuCreacion = false;
 
             } else if (tipo.equalsIgnoreCase("planta")) {
-
+                System.out.println("Nombre del pokemon: ");
+                String nombre = lea.next();
+                System.out.println("Ingrese el numero de pokedex: ");
+                int numDex = entrada.nextInt();
+                System.out.println("Naturaleza del pokemon(Timido, Energetico, Misterioso)");
+                String naturaleza = lea.next();
+                
+                System.out.println("Ingrese el habitad:  ");
+                String habitad = lea.next();
+                System.out.println("Ingrese dominio sobre las planta[#]: ");
+                int domPlanta = entrada.nextInt(); 
+                pokemones.add((GrassType) new GrassType(nombre, numDex, naturaleza, menuCreacion, habitad, domPlanta));
+                menuCreacion = false;
+                
             } else {
                 System.out.println("El tipo no es valido");
             }
