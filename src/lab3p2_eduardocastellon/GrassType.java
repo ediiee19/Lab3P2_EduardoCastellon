@@ -8,6 +8,31 @@ package lab3p2_eduardocastellon;
  *
  * @author caste
  */
-public class GrassType {
+public class GrassType extends Pokemon{
+    private String habitad;
+    private int domPlant;
+
+    public GrassType(String habitad, int domPlant) {
+        this.habitad = habitad;
+        this.domPlant = domPlant;
+    }
+
+    public String getHabitad() {
+        return habitad;
+    }
+
+    public void setHabitad(String habitad) {
+        this.habitad = habitad;
+    }
+
+    public int getDomPlant() {
+        return domPlant;
+    }
+
+    public void setDomPlant(int domPlant) {
+        this.domPlant = domPlant;
+    }
+    
+    
     
 }

@@ -11,6 +11,13 @@ public class FireType extends Pokemon{
     public FireType(int potencia) {
         this.potencia = potencia;
     }
-    
-    
+
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
+    }
+
 }
