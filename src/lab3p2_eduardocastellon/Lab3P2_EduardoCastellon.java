@@ -40,10 +40,24 @@ public class Lab3P2_EduardoCastellon {
                     crearPokeball();
                     break;
                 }
+                case 3:{
+                    int indice = 0;
+                    listar(pokemones, indice);
+                    break;
+                }
             }
         }//fin while menu
     }//fin main
-
+    
+    public static void listar(ArrayList lista, int indice){
+    if (indice >= lista.size()) {
+            return;
+        }
+        System.out.println((indice + 1) + "- " + lista.get(indice).toString());
+        indice++;
+        listar(lista, indice);
+    }
+    
     public static void crearPokeball() {
         Scanner lea = new Scanner(System.in);
         Scanner entrada = new Scanner(System.in);
@@ -64,7 +78,7 @@ public class Lab3P2_EduardoCastellon {
             }
         } while (vali);
         balls.add((Pokeball) new Pokeball(color, numSerie, efi));
-        System.out.println("Ball creada!\n1");
+        System.out.println("Ball creada!\n");
     }
 
     public static void crearPokemon() {
