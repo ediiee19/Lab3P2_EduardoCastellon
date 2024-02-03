@@ -6,7 +6,7 @@ package lab3p2_eduardocastellon;
 
 public class FireType extends Pokemon{
 
-    private int potencia;
+    protected int potencia;
 
     public FireType(String nombre, int numDex, String Naturaleza, Boolean atrapado, int potencia ){
         super(nombre, numDex, Naturaleza, atrapado);
@@ -21,4 +21,10 @@ public class FireType extends Pokemon{
         this.potencia = potencia;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Potencia de llama: " + potencia;
+    }
+    
+    
 }

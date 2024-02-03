@@ -9,8 +9,8 @@ package lab3p2_eduardocastellon;
  * @author caste
  */
 public class GrassType extends Pokemon{
-    private String habitad;
-    private int domPlant;
+    protected String habitad;
+    protected int domPlant;
 
     public GrassType(String nombre, int numDex, String Naturaleza, Boolean atrapado, String habitad, int domPlant) {
         super(nombre, numDex, Naturaleza, atrapado);
@@ -32,6 +32,11 @@ public class GrassType extends Pokemon{
 
     public void setDomPlant(int domPlant) {
         this.domPlant = domPlant;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "";
     }
     
     

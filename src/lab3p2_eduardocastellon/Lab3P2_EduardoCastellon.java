@@ -40,24 +40,97 @@ public class Lab3P2_EduardoCastellon {
                     crearPokeball();
                     break;
                 }
-                case 3:{
-                    int indice = 0;
-                    listar(pokemones, indice);
+                case 3: {
+                    ordenarListar();
                     break;
+                }
+                case 4: {
+                    eliminar();
                 }
             }
         }//fin while menu
     }//fin main
-    
-    public static void listar(ArrayList lista, int indice){
-    if (indice >= lista.size()) {
-            return;
-        }
-        System.out.println((indice + 1) + "- " + lista.get(indice).toString());
-        indice++;
-        listar(lista, indice);
+
+    public static void eliminar() {
+        Scanner lea = new Scanner(System.in);
+        System.out.println("Que tipo de pokemon desea crear? (Fuego / Agua / Planta)");
+        String tipo = lea.next();
+        int indice = 0;
+        if (tipo.equalsIgnoreCase("fuego")) {
+            for (Pokemon f : pokemones) {
+                if (f instanceof FireType) {
+                    System.out.println(indice + ". " + f.toString());
+                }
+                indice++;
+            }  
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice  = lea.nextInt();
+            
+            if (pokemones.get(pokIndice) instanceof FireType) {
+                pokemones.remove(pokIndice);
+                System.out.println("Se ha eliminado correctamente");
+            }else{
+                System.out.println("ingrese un numero valido");
+            }
+            
+        }else if (tipo.equalsIgnoreCase("agua")){
+            for (Pokemon f : pokemones) {
+                if (f instanceof WaterType) {
+                    System.out.println(indice + ". " + f.toString());
+                }
+                indice++;
+            }  
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice  = lea.nextInt();
+            
+            if (pokemones.get(pokIndice) instanceof WaterType) {
+                pokemones.remove(pokIndice);
+                System.out.println("Se ha eliminado correctamente");
+            }else{
+                System.out.println("ingrese un numero valido");
+            }
+        }else if (tipo.equalsIgnoreCase("planta")) {
+            for (Pokemon f : pokemones) {
+                if (f instanceof GrassType) {
+                    System.out.println(indice + ". " + f.toString());
+                }
+                indice++;
+            }  
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice  = lea.nextInt();
+            
+            if (pokemones.get(pokIndice) instanceof GrassType) {
+                pokemones.remove(pokIndice);
+                System.out.println("Se ha eliminado correctamente");
+            }else{
+                System.out.println("ingrese un numero valido");
+            }
+        }else{
+            System.out.println("Ingrese un tipo valido");
+        }   
     }
-    
+
+    public static void ordenarListar() {
+        for (int i = 0; i < pokemones.size(); i++) {
+            for (int j = 0; j < pokemones.size() - i - 1; j++) {
+                if (pokemones.get(j) instanceof FireType && pokemones.get(j + 1) instanceof WaterType) {
+                    Pokemon temp = pokemones.get(j);
+                    pokemones.set(j, pokemones.get(j + 1));
+                    pokemones.set(j, temp);
+                } else if (pokemones.get(j) instanceof WaterType && pokemones.get(j + 1) instanceof GrassType) {
+                    Pokemon temp = pokemones.get(j);
+                    pokemones.set(j, pokemones.get(j + 1));
+                    pokemones.set(j + 1, temp);
+                }
+            }
+        }
+        int indice = 0;
+        for (Pokemon f : pokemones) {
+            System.out.println(indice + ". " + f.toString());
+            indice++;
+        }
+    }
+
     public static void crearPokeball() {
         Scanner lea = new Scanner(System.in);
         Scanner entrada = new Scanner(System.in);
@@ -65,15 +138,15 @@ public class Lab3P2_EduardoCastellon {
         System.out.println("Ingrese color ");
         String color = lea.nextLine();
         System.out.println("Ingrese numero de serie: ");
-        int numSerie = entrada.nextInt();       
+        int numSerie = entrada.nextInt();
         int efi;
         boolean vali = true;
         do {
             System.out.println("Ingrese eficiancia de bola");
             efi = entrada.nextInt();
             if (efi > 3 || efi < 1) {
-                System.out.println("Ingrese eficienza valida");   
-            }else{
+                System.out.println("Ingrese eficienza valida");
+            } else {
                 vali = false;
             }
         } while (vali);
@@ -89,7 +162,7 @@ public class Lab3P2_EduardoCastellon {
         while (menuCreacion) {
             System.out.println("Que tipo de pokemon desea crear? (Fuego / Agua / Planta)");
             String tipo = lea.next();
-            
+
             if (tipo.equalsIgnoreCase("fuego")) {
                 System.out.println("Nombre del pokemon: ");
                 String nombre = lea.next();

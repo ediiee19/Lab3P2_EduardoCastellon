@@ -9,8 +9,8 @@ package lab3p2_eduardocastellon;
  * @author caste
  */
 public class WaterType extends Pokemon{
-    private boolean respiracion;
-    private int velocidadNado;
+    protected boolean respiracion;
+    protected int velocidadNado;
 
     public WaterType(String nombre, int numDex, String Naturaleza, Boolean atrapado, boolean respiracion, int velocidadNado) {
         super(nombre, numDex, Naturaleza, atrapado);
@@ -34,5 +34,17 @@ public class WaterType extends Pokemon{
         this.velocidadNado = velocidadNado;
     }
     
+    public String nadar(){
+        if (respiracion) {
+            return "El pokemn puede vivir fuera del agua";
+        }else{
+            return "El pokemn no puede vivir fuera del agua";
+        }
+    }
     
+    @Override
+    public String toString() {
+        return super.toString() + "| " + nadar() + " tiene una velocidad de nado de: " + velocidadNado;
+    }
+
 }

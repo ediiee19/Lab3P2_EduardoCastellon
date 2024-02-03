@@ -80,7 +80,7 @@ public class Pokemon {
             return "Sin capturar";
         }
     }
-    
+
     @Override
     public String toString() {
         return nombre + "["+numDex+"] " + "Naturaleza: " + Naturaleza + "| " + capturado();
