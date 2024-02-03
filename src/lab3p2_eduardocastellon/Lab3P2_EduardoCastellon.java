@@ -41,15 +41,27 @@ public class Lab3P2_EduardoCastellon {
                     break;
                 }
                 case 3: {
-                    ordenarListar();
+                    ordenarListar();// no sirvio el ordenar entonces solo liste para no perder tiempo
                     break;
                 }
                 case 4: {
                     eliminar();
                 }
+                case 5: {
+                    capturar();
+                }
             }
         }//fin while menu
     }//fin main
+
+    public static void capturar() {
+        Scanner lea = new Scanner(System.in);
+        if (balls.size() > 0) {
+            
+        }else{
+            System.out.println("No hay pokebolas");
+        }
+    }
 
     public static void eliminar() {
         Scanner lea = new Scanner(System.in);
@@ -62,68 +74,65 @@ public class Lab3P2_EduardoCastellon {
                     System.out.println(indice + ". " + f.toString());
                 }
                 indice++;
-            }  
-            System.out.println("Ingrese el indice del pokemon: ");
-            int pokIndice  = lea.nextInt();
-            
-            if (pokemones.get(pokIndice) instanceof FireType) {
-                pokemones.remove(pokIndice);
-                System.out.println("Se ha eliminado correctamente");
-            }else{
-                System.out.println("ingrese un numero valido");
             }
-            
-        }else if (tipo.equalsIgnoreCase("agua")){
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice = lea.nextInt();
+            if (pokIndice < pokemones.size()) {
+                if (pokemones.get(pokIndice) instanceof FireType) {
+                    pokemones.remove(pokIndice);
+                    System.out.println("Se ha eliminado correctamente");
+                } else {
+                    System.out.println("ingrese indice valido");
+                }
+            } else {
+                System.out.println("Ingrese indice valido");
+            }
+
+        } else if (tipo.equalsIgnoreCase("agua")) {
             for (Pokemon f : pokemones) {
                 if (f instanceof WaterType) {
                     System.out.println(indice + ". " + f.toString());
                 }
                 indice++;
-            }  
-            System.out.println("Ingrese el indice del pokemon: ");
-            int pokIndice  = lea.nextInt();
-            
-            if (pokemones.get(pokIndice) instanceof WaterType) {
-                pokemones.remove(pokIndice);
-                System.out.println("Se ha eliminado correctamente");
-            }else{
-                System.out.println("ingrese un numero valido");
             }
-        }else if (tipo.equalsIgnoreCase("planta")) {
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice = lea.nextInt();
+            if (pokIndice < pokemones.size()) {
+                if (pokemones.get(pokIndice) instanceof WaterType) {
+                    pokemones.remove(pokIndice);
+                    System.out.println("Se ha eliminado correctamente");
+                } else {
+                    System.out.println("ingrese un numero valido");
+                }
+            } else {
+                System.out.println("Ingrese un indice valido");
+            }
+
+        } else if (tipo.equalsIgnoreCase("planta")) {
             for (Pokemon f : pokemones) {
                 if (f instanceof GrassType) {
                     System.out.println(indice + ". " + f.toString());
                 }
                 indice++;
-            }  
-            System.out.println("Ingrese el indice del pokemon: ");
-            int pokIndice  = lea.nextInt();
-            
-            if (pokemones.get(pokIndice) instanceof GrassType) {
-                pokemones.remove(pokIndice);
-                System.out.println("Se ha eliminado correctamente");
-            }else{
-                System.out.println("ingrese un numero valido");
             }
-        }else{
+            System.out.println("Ingrese el indice del pokemon: ");
+            int pokIndice = lea.nextInt();
+            if (pokIndice < pokemones.size()) {
+                if (pokemones.get(pokIndice) instanceof GrassType) {
+                    pokemones.remove(pokIndice);
+                    System.out.println("Se ha eliminado correctamente");
+                } else {
+                    System.out.println("ingrese un numero valido");
+                }
+            } else {
+                System.out.println("Ingrese indice valido");
+            }
+        } else {
             System.out.println("Ingrese un tipo valido");
-        }   
+        }
     }
 
     public static void ordenarListar() {
-        for (int i = 0; i < pokemones.size(); i++) {
-            for (int j = 0; j < pokemones.size() - i - 1; j++) {
-                if (pokemones.get(j) instanceof FireType && pokemones.get(j + 1) instanceof WaterType) {
-                    Pokemon temp = pokemones.get(j);
-                    pokemones.set(j, pokemones.get(j + 1));
-                    pokemones.set(j, temp);
-                } else if (pokemones.get(j) instanceof WaterType && pokemones.get(j + 1) instanceof GrassType) {
-                    Pokemon temp = pokemones.get(j);
-                    pokemones.set(j, pokemones.get(j + 1));
-                    pokemones.set(j + 1, temp);
-                }
-            }
-        }
         int indice = 0;
         for (Pokemon f : pokemones) {
             System.out.println(indice + ". " + f.toString());
